@@ -27,8 +27,21 @@ target_link_libraries(simpletest PUBLIC Boost::filesystem)
 add_dependencies(simpletest testcreate)
 
 
+add_executable(simpletest2 test2.cpp)
+set_target_properties(simpletest2 PROPERTIES 
+    CXX_EXTENSIONS OFF 
+    CXX_STANDARD 14
+    CXX_STANDARD_REQUIRED ON
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+)
+target_link_libraries(simpletest2 PUBLIC Boost::filesystem)
+
+
 include(CTest)
 
 add_test(NAME single COMMAND  $<TARGET_FILE:simpletest> WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+add_test(NAME singl2e COMMAND  $<TARGET_FILE:simpletest2> WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
 file(COPY test-data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
