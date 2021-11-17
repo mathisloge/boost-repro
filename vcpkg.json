@@ -1,0 +1,7 @@
+{
+    "name": "testrepo",
+    "version-string": "master",
+    "dependencies": [
+        "boost-filesystem"
+    ]
+}
