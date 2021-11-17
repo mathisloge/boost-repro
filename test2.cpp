@@ -9,7 +9,6 @@ int main(int argc, char const *argv[])
 
     std::ofstream index(index_path.c_str(), std::ios::binary);
     index << "index2" << std::endl;
-    index.flush();
     index.close();
 
     if (boost::filesystem::exists(index_path))
