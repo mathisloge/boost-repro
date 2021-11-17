@@ -24,3 +24,5 @@ add_dependencies(simpletest testcreate)
 include(CTest)
 
 add_test(NAME single COMMAND  $<TARGET_FILE:simpletest>)
+
+file(COPY test-data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
