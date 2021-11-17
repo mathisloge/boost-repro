@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
     std::cout << "test my own output" << std::endl;
     std::system("testcreate.exe");
 
-    std::string p{"test-data/shp/mytest.txt"};
+    std::string p{"test-data/shp/boundaries.index"};
     if (!boost::filesystem::exists(utf8_to_utf16(p)))
         throw std::runtime_error("does not exists");
 

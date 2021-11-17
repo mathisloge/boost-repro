@@ -4,7 +4,7 @@
 
 int main(int argc, char const *argv[])
 {
-    std::string p{"test-data/shp/mytest.txt"};
+    std::string p{"test-data/shp/boundaries.index"};
     std::ofstream file(p, std::ios::trunc | std::ios::binary);
     file << "TEST" << std::endl;
 
