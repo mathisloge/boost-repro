@@ -9,9 +9,9 @@ set_target_properties(testcreate PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
 )
+target_link_libraries(testcreate PUBLIC Boost::filesystem)
 
 add_executable(simpletest main.cpp)
-
 set_target_properties(simpletest PROPERTIES 
     CXX_EXTENSIONS OFF 
     CXX_STANDARD 14
