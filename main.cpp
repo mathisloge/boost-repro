@@ -5,11 +5,14 @@ int main(int argc, char const *argv[])
 
     std::system("testcreate.exe");
 
-    boost::filesystem::path p{boost::filesystem::path{"test-data"} / "shp"};
-
-    if (!boost::filesystem::exists(p / "mytest.txt"))
+    boost::filesystem::path p{"xxxxx"};
+    for (int i = 0; i < 10; i++)
+        p /= "xxxxx";
+    p /= "mytest.txt";
+    if (!boost::filesystem::exists(p))
         throw std::runtime_error("does not exists");
-    boost::filesystem::remove(p / "mytest.txt");
+
+    boost::filesystem::remove(p);
 
     return 0;
 }
