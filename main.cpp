@@ -1,8 +1,8 @@
 #include <boost/filesystem.hpp>
-
+#include <iostream>
 int main(int argc, char const *argv[])
 {
-
+    std::cout << "test my own output" << std::endl;
     std::system("testcreate.exe");
 
     boost::filesystem::path p{"xxxxx"};
