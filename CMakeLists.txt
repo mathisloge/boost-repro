@@ -8,6 +8,9 @@ set_target_properties(testcreate PROPERTIES
     CXX_EXTENSIONS OFF 
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 )
 target_link_libraries(testcreate PUBLIC Boost::filesystem)
 
@@ -16,6 +19,9 @@ set_target_properties(simpletest PROPERTIES
     CXX_EXTENSIONS OFF 
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 )
 target_link_libraries(simpletest PUBLIC Boost::filesystem)
 add_dependencies(simpletest testcreate)
@@ -23,6 +29,6 @@ add_dependencies(simpletest testcreate)
 
 include(CTest)
 
-add_test(NAME single COMMAND  $<TARGET_FILE:simpletest>)
+add_test(NAME single COMMAND  $<TARGET_FILE:simpletest> WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
 file(COPY test-data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
