@@ -23,7 +23,7 @@ static std::wstring utf8_to_utf16(std::string const &str)
 int main(int argc, char const *argv[])
 {
     std::cout << "test my own output" << std::endl;
-    std::system("testcreate.exe");
+    std::system("callable.exe");
 
     std::string uri{"test-data/shp/boundaries.index"};
     if (!boost::filesystem::exists(utf8_to_utf16(uri)))
