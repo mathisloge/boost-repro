@@ -2,6 +2,7 @@
     "name": "testrepo",
     "version-string": "master",
     "dependencies": [
-        "boost-filesystem"
+        "boost-filesystem",
+        "boost-interprocess"
     ]
 }
