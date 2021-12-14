@@ -29,12 +29,13 @@ int main(int argc, char const *argv[])
     if (!boost::filesystem::exists(utf8_to_utf16(uri)))
         throw std::runtime_error("does not exists");
 
-    using mapped_region_ptr = std::shared_ptr<boost::interprocess::mapped_region>;
-
-    boost::interprocess::ibufferstream in;
-    boost::interprocess::file_mapping mapping(uri.c_str(), boost::interprocess::read_only);
-    mapped_region_ptr mapped_region(std::make_shared<boost::interprocess::mapped_region>(mapping, boost::interprocess::read_only));
-    in.buffer(static_cast<char *>(mapped_region->get_address()), mapped_region->get_size());
+    {
+        using mapped_region_ptr = std::shared_ptr<boost::interprocess::mapped_region>;
+        boost::interprocess::ibufferstream in;
+        boost::interprocess::file_mapping mapping(uri.c_str(), boost::interprocess::read_only);
+        mapped_region_ptr mapped_region(std::make_shared<boost::interprocess::mapped_region>(mapping, boost::interprocess::read_only));
+        in.buffer(static_cast<char *>(mapped_region->get_address()), mapped_region->get_size());
+    }
 
     boost::filesystem::remove(uri);
 
